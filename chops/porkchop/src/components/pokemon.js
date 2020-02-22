@@ -7,7 +7,7 @@ import { typeThemes } from "../util"
 
 const Pokemon = ({ pokemon }) => {
   const [, setState] = useStateValue()
-  const { data, error } = useSwr(pokemon, getPokemon)
+  const { data, error } = useSwr(pokemon && pokemon.toLowerCase(), getPokemon)
 
   const type = data?.data?.types[0]?.type?.name
 
