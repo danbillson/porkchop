@@ -1,12 +1,13 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
-
+import { GlobalTypography } from "theme"
 import Header from "./header"
 
 const Layout = ({ children }) => {
   return (
     <>
       <Global />
+      <GlobalTypography />
       <Header siteTitle="Porkchop" />
       <Main>{children}</Main>
     </>
