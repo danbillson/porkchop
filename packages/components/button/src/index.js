@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { spacing } from 'theme'
 
 const Button = styled.button`
-  background: orange;
+  background: ${props => props.theme.primary || 'orange'};
   color: #fff;
   border-radius: 4px;
   cursor: pointer;

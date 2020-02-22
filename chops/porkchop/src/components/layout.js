@@ -2,15 +2,19 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { GlobalTypography } from "theme"
 import Header from "./header"
+import { StateProvider, ThemeProvider } from "../contexts"
+import { typeThemes } from "../util"
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Global />
-      <GlobalTypography />
-      <Header siteTitle="Porkchop" />
-      <Main>{children}</Main>
-    </>
+    <StateProvider initialState={{ theme: typeThemes.normal }}>
+      <ThemeProvider>
+        <Global />
+        <GlobalTypography />
+        <Header siteTitle="Porkchop" />
+        <Main>{children}</Main>
+      </ThemeProvider>
+    </StateProvider>
   )
 }
 

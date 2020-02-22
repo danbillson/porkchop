@@ -1,10 +1,21 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
-import { getPokemon } from "pokemon"
 import useSwr from "swr"
+import { getPokemon } from "pokemon"
+import { useStateValue } from "../contexts"
+import { typeThemes } from "../util"
 
 const Pokemon = ({ pokemon }) => {
+  const [, setState] = useStateValue()
   const { data, error } = useSwr(pokemon, getPokemon)
+
+  const type = data?.data?.types[0]?.type?.name
+
+  useEffect(() => {
+    setState({
+      theme: type ? typeThemes[type] : typeThemes.normal,
+    })
+  }, [type, setState])
 
   if (error) {
     return <div>The pokemon {pokemon} was not found</div>
@@ -21,7 +32,7 @@ const Pokemon = ({ pokemon }) => {
   return (
     <Container>
       <h2>{name}</h2>
-      <img src={sprites?.front_default} alt={name} />
+      <img src={sprites.front_default} alt={name} />
     </Container>
   )
 }

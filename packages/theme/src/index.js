@@ -6,7 +6,6 @@ export const typography = new Typography({
   baseLineHeight: 1.666,
   headerFontFamily: [
     'Karla',
-    'Avenir Next',
     'Helvetica Neue',
     'Segoe UI',
     'Helvetica',
@@ -14,7 +13,7 @@ export const typography = new Typography({
     'sans-serif'
   ],
   bodyFontFamily: [
-    'Avenir Next',
+    'Karla',
     'Helvetica Neue',
     'Segoe UI',
     'Helvetica',
