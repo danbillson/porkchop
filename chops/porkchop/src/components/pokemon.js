@@ -6,7 +6,7 @@ import { useStateValue, usePokemonValue } from "../contexts"
 import { typeThemes } from "../util"
 
 const Pokemon = () => {
-  const [{ shiny }, setState] = useStateValue()
+  const [{ shiny, pokemon: pokemonName }, setState] = useStateValue()
   const [{ pokemon, error }] = usePokemonValue()
 
   // prefetch pokemon before and after current
@@ -30,7 +30,7 @@ const Pokemon = () => {
   }, [color, setState])
 
   if (error) {
-    return <div>The pokemon {pokemon} was not found</div>
+    return <div>The pokemon {pokemonName} was not found</div>
   }
 
   if (!pokemon) {

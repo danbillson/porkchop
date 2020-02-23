@@ -20,8 +20,9 @@ const Search = () => {
 
   useEffect(() => {
     const path = location.pathname.slice(1)
-    path && setState(state => ({ ...state, pokemon: path }))
-  }, [])
+    path &&
+      setState(state => ({ ...state, pokemon: path.toString().toLowerCase() }))
+  }, [location.pathname, setState])
 
   useEffect(() => {
     setPokemon({ pokemon: data?.data, error })
