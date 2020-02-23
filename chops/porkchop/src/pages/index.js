@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { PokemonProvider } from "../contexts"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Search from "../components/search"
 import Pokemon from "../components/pokemon"
 import PokeNav from "../components/pokeNav"
@@ -9,6 +10,7 @@ import PokeNav from "../components/pokeNav"
 const IndexPage = () => {
   return (
     <Layout>
+      <SEO title="Home" />
       <Container>
         <PokemonProvider initialState={{}}>
           <Search />
