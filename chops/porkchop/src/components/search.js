@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import useSwr from "swr"
+import { useLocation } from "@reach/router"
 import Button from "button"
 import Input from "input"
 import { getPokemon } from "pokemon"
@@ -11,10 +12,16 @@ const Search = () => {
   const [, setPokemon] = usePokemonValue()
   const [{ pokemon }, setState] = useStateValue("")
   const [search, setSearch] = useState("")
+  const location = useLocation()
   const { data, error } = useSwr(
     pokemon && pokemon.toString().toLowerCase(),
     getPokemon
   )
+
+  useEffect(() => {
+    const path = location.pathname.slice(1)
+    path && setState(state => ({ ...state, pokemon: path }))
+  }, [])
 
   useEffect(() => {
     setPokemon({ pokemon: data?.data, error })

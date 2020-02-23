@@ -32,6 +32,7 @@ const Container = styled.header`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   max-width: 960px;
   padding: 1.45rem 1.0875rem;

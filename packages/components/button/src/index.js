@@ -3,7 +3,7 @@ import color from 'color'
 import { spacing } from 'theme'
 
 const colorOrGradient = gradient =>
-  gradient.includes('gradient')
+  gradient && gradient.includes('gradient')
     ? gradient.substring(gradient.lastIndexOf('#'), gradient.lastIndexOf(')'))
     : gradient
 
