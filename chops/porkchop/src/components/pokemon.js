@@ -6,15 +6,16 @@ import { useStateValue } from "../contexts"
 import { typeThemes } from "../util"
 
 const Pokemon = ({ pokemon }) => {
-  const [, setState] = useStateValue()
+  const [{ shiny }, setState] = useStateValue()
   const { data, error } = useSwr(pokemon && pokemon.toLowerCase(), getPokemon)
 
   const type = data?.data?.types[0]?.type?.name
 
   useEffect(() => {
-    setState({
+    setState(state => ({
+      ...state,
       theme: type ? typeThemes[type] : typeThemes.normal,
-    })
+    }))
   }, [type, setState])
 
   if (error) {
@@ -32,7 +33,10 @@ const Pokemon = ({ pokemon }) => {
   return (
     <Container>
       <h2>{name}</h2>
-      <img src={sprites.front_default} alt={name} />
+      <img
+        src={shiny ? sprites.front_shiny : sprites.front_default}
+        alt={name}
+      />
     </Container>
   )
 }

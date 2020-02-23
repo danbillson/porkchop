@@ -7,7 +7,7 @@ import { typeThemes } from "../util"
 
 const Layout = ({ children }) => {
   return (
-    <StateProvider initialState={{ theme: typeThemes.normal }}>
+    <StateProvider initialState={{ theme: typeThemes.normal, shiny: false }}>
       <ThemeProvider>
         <Global />
         <GlobalTypography />
