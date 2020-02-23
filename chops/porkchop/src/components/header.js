@@ -10,6 +10,8 @@ const Header = ({ siteTitle }) => {
       <Nav>
         <Title>{siteTitle}</Title>
         <Shiny
+          role="img"
+          aria-label="sparkle"
           onClick={() => setState(state => ({ ...state, shiny: !state.shiny }))}
         >
           ✨
@@ -40,7 +42,8 @@ const Title = styled.h1`
   margin: 0;
 `
 
-const Shiny = styled.h1`
+const Shiny = styled.span`
   margin: 0;
   cursor: pointer;
+  font-size: 36px;
 `

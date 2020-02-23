@@ -18,7 +18,7 @@ const Search = () => {
 
   useEffect(() => {
     setPokemon({ pokemon: data?.data, error })
-  }, [pokemon, data, error])
+  }, [pokemon, data, error, setPokemon])
 
   const handleSubmit = e => {
     e.preventDefault()
