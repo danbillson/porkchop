@@ -18,3 +18,8 @@ export const typeThemes = {
   steel: `#5695a4`,
   water: `#559be0`,
 }
+
+export const getColor = color =>
+  color && color.includes("gradient")
+    ? color.substring(color.lastIndexOf("#"), color.lastIndexOf(")"))
+    : color
