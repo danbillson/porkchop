@@ -48,6 +48,6 @@ const Form = styled.form`
   margin-bottom: 50px;
 
   button {
-    transition: 0.2s easi-in-out;
+    transition: 0.3s ease-in-out;
   }
 `
