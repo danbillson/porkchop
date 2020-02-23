@@ -1,11 +1,17 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
+import useSwr from "swr"
+import { getPokemon } from "pokemon"
 import { useStateValue, usePokemonValue } from "../contexts"
 import { typeThemes } from "../util"
 
 const Pokemon = () => {
   const [{ shiny }, setState] = useStateValue()
   const [{ pokemon, error }] = usePokemonValue()
+
+  // prefetch pokemon before and after current
+  useSwr(pokemon && pokemon.id - 1, getPokemon)
+  useSwr(pokemon && pokemon.id + 1, getPokemon)
 
   const types = pokemon?.types
   const color = !types
