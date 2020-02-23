@@ -19,3 +19,13 @@ export const ThemeProvider = ({ children }) => {
     </StyledThemeProvider>
   )
 }
+
+export const pokemonContext = createContext()
+
+export const PokemonProvider = ({ initialState, children }) => (
+  <pokemonContext.Provider value={useState(initialState)}>
+    {children}
+  </pokemonContext.Provider>
+)
+
+export const usePokemonValue = () => useContext(pokemonContext)

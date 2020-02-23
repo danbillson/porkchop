@@ -1,34 +1,37 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import useSwr from "swr"
-import { getPokemon } from "pokemon"
-import { useStateValue } from "../contexts"
+import { useStateValue, usePokemonValue } from "../contexts"
 import { typeThemes } from "../util"
 
-const Pokemon = ({ pokemon }) => {
+const Pokemon = () => {
   const [{ shiny }, setState] = useStateValue()
-  const { data, error } = useSwr(pokemon && pokemon.toLowerCase(), getPokemon)
+  const [{ pokemon, error }] = usePokemonValue()
 
-  const type = data?.data?.types[0]?.type?.name
+  const types = pokemon?.types
+  const color = !types
+    ? null
+    : types.length > 1
+    ? `linear-gradient(to left, ${typeThemes[types[0].type.name]}, ${
+        typeThemes[types[1].type.name]
+      })`
+    : typeThemes[types[0].type.name]
 
   useEffect(() => {
     setState(state => ({
       ...state,
-      theme: type ? typeThemes[type] : typeThemes.normal,
+      theme: color ? color : typeThemes.normal,
     }))
-  }, [type, setState])
+  }, [color, setState])
 
   if (error) {
     return <div>The pokemon {pokemon} was not found</div>
   }
 
-  if (!data) {
+  if (!pokemon) {
     return null
   }
 
-  const {
-    data: { name, sprites },
-  } = data
+  const { name, sprites } = pokemon
 
   return (
     <Container>
@@ -47,4 +50,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  min-height: 185px;
 `

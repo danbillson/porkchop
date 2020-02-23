@@ -1,28 +1,20 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
+import { PokemonProvider } from "../contexts"
 import Layout from "../components/layout"
-import Button from "button"
-import Input from "input"
+import Search from "../components/search"
 import Pokemon from "../components/pokemon"
+import PokeNav from "../components/pokeNav"
 
 const IndexPage = () => {
-  const [search, setSearch] = useState("")
-  const [pokemon, setPokemon] = useState("")
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    setPokemon(search)
-    setSearch("")
-  }
-
   return (
     <Layout>
       <Container>
-        <Search onSubmit={handleSubmit}>
-          <Input value={search} onChange={e => setSearch(e.target.value)} />
-          <Button type="submit">search</Button>
-        </Search>
-        <Pokemon pokemon={pokemon} />
+        <PokemonProvider initialState={{}}>
+          <Search />
+          <Pokemon />
+          <PokeNav />
+        </PokemonProvider>
       </Container>
     </Layout>
   )
@@ -38,8 +30,4 @@ const Container = styled.div`
   margin: 0 auto;
   width: 90%;
   max-width: 800px;
-`
-
-const Search = styled.form`
-  margin-bottom: 50px;
 `
