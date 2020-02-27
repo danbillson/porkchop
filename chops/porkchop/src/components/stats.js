@@ -15,10 +15,11 @@ const Stats = () => {
     .reverse()
 
   return data ? (
-    <XYPlot height={300} width={300}>
+    <XYPlot height={200} width={300}>
       <VerticalBarSeries
         data={data}
         color={getColor(theme)}
+        barWidth={0.75}
         animation={"noWobble"}
       />
     </XYPlot>
