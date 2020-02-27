@@ -37,10 +37,11 @@ const Pokemon = () => {
     return null
   }
 
-  const { name, sprites } = pokemon
+  const { id, name, sprites } = pokemon
 
   return (
     <Container>
+      <Entry>{id.toString().padStart(3, "0")}</Entry>
       <h2>{name}</h2>
       <img
         src={shiny ? sprites.front_shiny : sprites.front_default}
@@ -55,7 +56,21 @@ export default Pokemon
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   width: 100%;
   min-height: 185px;
+`
+
+const Entry = styled.h1`
+  position: absolute;
+  top: 0;
+  display: block;
+  color: #eeeeee60;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 180px;
+  z-index: -1;
 `

@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 import Search from "../components/search"
 import Pokemon from "../components/pokemon"
 import PokeNav from "../components/pokeNav"
-import Stats from "../components/stats"
 
 const IndexPage = () => {
   return (
@@ -17,7 +16,6 @@ const IndexPage = () => {
           <Search />
           <Pokemon />
           <PokeNav />
-          <Stats />
         </PokemonProvider>
       </Container>
     </Layout>

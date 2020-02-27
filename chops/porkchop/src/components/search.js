@@ -8,15 +8,17 @@ import { getPokemon } from "pokemon"
 import { useStateValue, usePokemonValue } from "../contexts"
 import { useEffect } from "react"
 
+const cleanSearch = pokemon =>
+  pokemon.toString().startsWith("0")
+    ? parseInt(pokemon)
+    : pokemon.toString().toLowerCase()
+
 const Search = () => {
   const [, setPokemon] = usePokemonValue()
   const [{ pokemon }, setState] = useStateValue("")
   const [search, setSearch] = useState("")
   const location = useLocation()
-  const { data, error } = useSwr(
-    pokemon && pokemon.toString().toLowerCase(),
-    getPokemon
-  )
+  const { data, error } = useSwr(cleanSearch(pokemon), getPokemon)
 
   useEffect(() => {
     const path = location.pathname.slice(1)
