@@ -9,6 +9,7 @@
     "dev": "start-storybook -p 5555",
     "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.story.js,**/*.spec.js",
     "build:porkchop": "cd chops/porkchop && yarn build",
+    "build:ribeye": "cd chops/ribeye && yarn build",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "coverage": "jest --coverage",
     "unit": "jest"
