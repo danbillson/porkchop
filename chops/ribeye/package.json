@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "just-to-fool-now",
     "button": "^1.0.1",
     "input": "^1.0.1",
+    "next": "^9.2.2",
     "theme": "^1.0.0"
   }
 }
