@@ -22,11 +22,9 @@
     "@storybook/react": "^5.3.13",
     "axios": "^0.19.2",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
     "color": "^3.1.2",
-    "jest": "^25.1.0",
     "jest-haste-map": "^25.1.0",
     "jest-resolve": "^25.1.0",
     "jest-styled-components": "^7.0.0",
@@ -37,7 +35,6 @@
     "react-test-renderer": "^16.12.0",
     "styled-components": "^5.0.1",
     "swr": "^0.1.17",
-    "typography": "^0.16.19",
-    "webpack": "^4.41.6"
+    "typography": "^0.16.19"
   }
 }
