@@ -13,10 +13,10 @@ export const Todos = () => {
 
   const AddTodo = e => {
     e.preventDefault()
-    if (inputValue) {
+    if (inputValue.trim()) {
       dispatch(addTodo(inputValue))
-      setInputValue('')
     }
+    setInputValue('')
   }
 
   const renderTodos = () =>
@@ -111,7 +111,7 @@ const Button = styled.button`
   background-color: #75d0c1;
   color: #fff;
   width: fit-content;
-  font-weight: 300;
+  font-weight: 700;
   border-radius: 50px;
   border: none;
   transition: 0.3s ease-in-out;
